@@ -4,8 +4,6 @@
     /* padding: 0%; */
 }
 
-
-
 .section-head {
     font-size: 2.25rem;
     margin-bottom: 1rem;
@@ -67,6 +65,9 @@ header {
     flex: 1;
 }
 
+.nav-col-1 {
+    flex: 1;
+}
 
 .options {
     display: flex;
@@ -141,8 +142,8 @@ header {
 .sec-2 {
     display: flex;
     width: 100vw;
-    height: 75vh;
-    /* height: auto; */
+    /* height: 75vh; */
+    height: auto;
 }
 
 .sec-2-col-1 {
@@ -448,6 +449,19 @@ footer {
     }
 
     header {
+        height: 2rem;
+        position: relative;
+        
+    }
+    .logo {
+        flex: 1;
+        margin-left: 3.4rem;
+    }
+    .navbar {
+        position: fixed;
+        width: 100%;
+    }
+    .nav-col-1 {
         display: none;
     }
 
@@ -456,10 +470,12 @@ footer {
         height: auto;
     }
 
+    .sec-1,
     .sec-2,
     .mobile,
     .sec-5,
     .sec-3,
+    .footer-cta,
     .footer-container {
         flex-direction: column;
         width: var(--width);
@@ -469,20 +485,32 @@ footer {
         text-align: center;
     }
 
+   
     .button-group {
         justify-content: center;
     }
 
+    .footer-cta {
+        position: relative;
+        height: auto;
+        margin: 0%;
+    }
     .right-col,
     .sec-2-col-1,
-    .sec-2-col-2 {
-        width: var(--width);
+    .sec-3-col-2,
+    .light-and-fast {
+        width: 100%;
         height: auto;
         margin: 0 auto;
         justify-content: center;
     }
-    footer, .sec-5 {
+    .sec-5, .sec-2-col-2 {
         display: none;
+    }
+    .sec-3-card {
+        width: 100%;
+        max-width: 90%;
+        margin-top: 1.5rem;
     }
 }
 
