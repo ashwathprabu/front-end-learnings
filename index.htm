@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="style.css">
     <script>
         console.log(window.innerWidth, window.innerHeight);
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.classList.add('box-shadow');
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.remove('box-shadow');
+            }
+        })
+
+        function handleSubMenu() {
+            console.log('opened')
+            const sidebar = document.querySelector('.tab-menu')
+            sidebar.style.display = 'flex'
+            sidebar.style.transition = 'display 3s'
+        }
+        function closeMenu() {
+            console.log('closed')
+            const sidebar = document.querySelector('.tab-menu')
+            sidebar.style.display = 'none'
+        }
     </script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
 </head>
@@ -16,17 +40,18 @@
 <body>
     <div class="landing-page">
         <header>
-            <div class="navbar ">
+            <div class="navbar " id="navbar">
                 <div class="center nav-col-1 light-bg">
-                    <ul class=" options">
+                    <ul class="options">
                         <li>Home</li>
                         <li>About</li>
                         <li>Contact</li>
                     </ul>
                     <div class="menu">
-                        <span class="material-symbols-outlined">
+                        <span class="sub-menu material-symbols-outlined" onclick="handleSubMenu()">
                             menu
                         </span>
+
                     </div>
                 </div>
                 <div class="center  logo nav-col">
@@ -35,8 +60,20 @@
                 <div class="center nav-col cg">
                     <a href="" class="btn-fill">Buy Now</a>
                 </div>
+                <div class="tab-menu">
+                    <ul class="tab-menu-options">
+                       
+                        <li class="close" >
+                            <img src="./close.png" alt="" onclick="closeMenu()">
+                        </li>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
             </div>
         </header>
+
         <section class="sec-1">
             <div class="right-col">
                 <h1 class="dark-bg ">Introduce Your Product Quickly & Effectively</h1>
