@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Navbar UI</title>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        };
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+
+    <nav
+        class="w-full px-4 py-2 flex items-center justify-between shadow-sm bg-white dark:bg-gray-800 border-b border-blue-50">
+        <!-- Left: Logo + Brand -->
+        <div class="flex items-center space-x-2">
+            <img class="" src="./assets/logo.svg" alt="">
+            <!-- <div class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
+        C
+      </div>
+      <span class="text-lg font-semibold">Circle Soft</span> -->
+        </div>
+
+        <!-- Center: Search Bar -->
+        <div class="flex-1 mx-4 hidden md:block">
+            <div class="relative">
+                <input type="text" placeholder="Search..."
+                    class="w-1/2 pl-10 pr-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:placeholder-gray-400" />
+                <svg class="absolute left-3 top-2.5 h-5 w-5 text-gray-400 dark:text-gray-300" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Right: Icons -->
+        <div class="flex items-center space-x-3">
+            <!-- Dark Mode Toggle -->
+            <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                <svg class="w-5 h-5 text-black dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                </svg>
+            </button>
+
+            <!-- Notification Bell -->
+            <div class="relative">
+                <button class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                    <svg class="w-5 h-5 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M18 8a6 6 0 00-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 01-3.46 0" />
+                    </svg>
+                </button>
+                <span
+                    class="absolute top-1 right-1 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-800"></span>
+            </div>
+        </div>
+    </nav>
+    <div class="bg-gray-50 text-gray-800">
+        <div class="flex h-screen">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-white shadow-lg flex flex-col justify-between">
+                <div>
+                    <!-- Profile -->
+                    <div class="p-4 flex items-center gap-3 border-b">
+                        <img src="./assets/avatar.svg" alt="Profile" class="rounded-full w-10 h-10" />
+                        <div>
+                            <p class="font-semibold">Gavano</p>
+                            <p class="text-sm text-gray-500">HR Manager</p>
+                        </div>
+                        <img src="./assets/profile-options.svg" alt="Profile" class="rounded-full w-10 h-10" />
+                    </div>
+                    <nav class="flex flex-col items-start justify-start space-y-2">
+                        <ul class="w-full space-y-2">
+                            <li>
+                                <a href="#"
+                                    class="flex  p-4 items-center gap-2 p-2 w-full bg-neutral-100 text-indigo-600 font-semibold">
+                                    <img src="./assets/dashboard.svg" alt="" class="h-5 ml-4">
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/finance.svg" alt="" class="h-5 ml-4">
+                                    <span>Finance</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/employees.svg" alt="" class="h-5 ml-4">
+                                    <span>Employees</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/company.svg" alt="" class="h-5 ml-4">
+                                    <span>Company</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
+                                    <span>Candidate</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/calendar.svg" alt="" class="h-5 ml-4">
+                                    <span>Calendar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class=" border-t border-blue-50"></div>
+                    <!-- Footer -->
+                    <div class="flex flex-col items-start justify-start">
+                        <ul class="w-full space-y-2">
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
+                                    <span>Candidate</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
+                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
+                                    <span>Candidate</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- Main Dashboard -->
+            <main class="flex-1 p-6 overflow-y-auto">
+                <!-- Top Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <div class="flex space-x-4">
+                            <p class="text-sm text-gray-500">Total Employees</p>
+                            <span class="text-green-600 text-sm">10.0%</span>
+
+                        </div>
+                        <h2 class="text-2xl font-bold mt-4">856</h2>
+                        <span class="text-gray-500 text-sm">Employee</span>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <div class="flex space-x-4">
+                            <p class="text-sm text-gray-500">Job View</p>
+                            <span class="text-green-600 text-sm">10.0%</span>
+
+                        </div>
+                        <h2 class="text-2xl font-bold mt-4">3,342</h2>
+                        <span class="text-gray-500 text-sm">Viewers</span>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <div class="flex space-x-4">
+                            <p class="text-sm text-gray-500">Job Applied</p>
+                            <span class="text-green-600 text-sm">10.0%</span>
+
+                        </div>
+                        <h2 class="text-2xl font-bold mt-4">77</h2>
+                        <span class="text-gray-500 text-sm">Applicants</span>
+                    </div>
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <div class="flex space-x-2">
+                            <p class="text-sm text-gray-500">Resigned Employees</p>
+                            <span class="text-green-600 text-sm">10.0%</span>
+
+                        </div>
+                        <h2 class="text-2xl font-bold mt-4">17</h2>
+                        <span class="text-gray-500 text-sm">Employee</span>
+                    </div>
+                </div>
+
+                <!-- Bar Chart Placeholder -->
+                <div class="bg-white rounded-lg shadow p-4 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold">Job Statistics</h3>
+                        <div class="relative">
+                            <select id="timeframeSelector"
+                                class="px-3 py-1 text-sm bg-gray-100 rounded border border-gray-300">
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="weekly">Weekly</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div
+                        class="h-60 bg-gradient-to-r to-indigo-200 rounded flex items-center justify-center width-full text-indigo-600">
+                        <canvas class="" id="jobStatsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-lg font-semibold">Job Statistics</h2>
+
+                    <div class="flex items-center gap-4">
+                        <div id="chartLegendContainer"></div>
+
+                        <select class="px-3 py-1 border rounded text-sm text-gray-600 bg-white shadow-sm">
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                            <option>Last 3 Months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="relative w-full h-64 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded">
+                    <canvas id="jobStatsChart" class="w-full h-full"></canvas>
+                </div> -->
+
+
+                <!-- Bottom Section: Employee Table + Composition Chart -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Employee Status</h3>
+                            <button class="text-sm px-2 py-1 bg-gray-100 rounded">Filter & Sort</button>
+                        </div>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-gray-500 border-b">
+                                    <th class="py-2">Employee Name</th>
+                                    <th>Department</th>
+                                    <th>Age</th>
+                                    <th>Discipline</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="https://i.pravatar.cc/24?img=1" class="rounded-full w-6 h-6" /> Justin
+                                        Lipshutz
+                                    </td>
+                                    <td>Marketing</td>
+                                    <td>22</td>
+                                    <td class="text-green-600">+100%</td>
+                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="https://i.pravatar.cc/24?img=2" class="rounded-full w-6 h-6" /> Marcus
+                                        Culhane
+                                    </td>
+                                    <td>Finance</td>
+                                    <td>24</td>
+                                    <td class="text-green-600">+95%</td>
+                                    <td><span class="text-gray-700 bg-gray-100 px-2 py-1 rounded">Contract</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="https://i.pravatar.cc/24?img=3" class="rounded-full w-6 h-6" /> Leo
+                                        Stanton
+                                    </td>
+                                    <td>R&D</td>
+                                    <td>28</td>
+                                    <td class="text-green-600">+89%</td>
+                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center">
+                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
+                        <canvas id="employeeCompositionChart" ></canvas>
+                    </div> -->
+                    <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center h-[300px]">
+                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
+                        <canvas id="employeeCompositionChart"></canvas>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('jobStatsChart').getContext('2d');
+
+        // Sample data
+        const chartData = {
+            monthly: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    {
+                        label: 'Job View',
+                        data: [40, 45, 50, 35, 30, 40, 45, 20, 50, 40, 35, 45],
+                        backgroundColor: 'rgba(80, 0, 255, 1)',
+                        borderRadius: 20,
+                        stack: 'combined'
+                    },
+                    {
+                        label: 'Job Applied',
+                        data: [30, 35, 40, 25, 20, 30, 35, 45, 40, 35, 30, 40],
+                        backgroundColor: 'rgba(220, 220, 255, 0.6)',
+                        borderRadius: 10,
+                        stack: 'combined'
+                    }
+                ]
+            },
+            weekly: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [
+                    {
+                        label: 'Job View',
+                        data: [35, 40, 30, 45],
+                        backgroundColor: 'rgba(80, 0, 255, 1)',
+                        borderRadius: 20,
+                        stack: 'combined'
+                    },
+                    {
+                        label: 'Job Applied',
+                        data: [25, 30, 20, 35],
+                        backgroundColor: 'rgba(220, 220, 255, 0.6)',
+                        borderRadius: 10,
+                        stack: 'combined'
+                    }
+                ]
+            }
+        };
+
+        // Chart instance
+        let jobStatsChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData.monthly,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        },
+                    },
+                    x: {
+                        stacked: true,
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => `${ctx.dataset.label}: ${ctx.formattedValue}`
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                        align: 'end',
+                        labels: {
+                            boxWidth: 16,
+                            boxHeight: 16,
+                            usePointStyle: false,
+                            padding: 10
+                        }
+                    }
+                }
+            }
+        });
+        // Handle dropdown change
+        document.getElementById('timeframeSelector').addEventListener('change', function () {
+            const selected = this.value;
+            jobStatsChart.data = chartData[selected];
+            jobStatsChart.update();
+        });
+
+
+        // donut chart
+        const chrt = document.getElementById('employeeCompositionChart').getContext('2d');
+        new Chart(chrt, {
+            type: 'doughnut',
+
+            data: {
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [65, 35],
+                    backgroundColor: [
+                        '#16C098',
+                        '#5832E6'
+                    ],
+                    offset: 10,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // allow it to fill the canvas
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => {
+                                let label = ctx.label || '';
+                                if (ctx.parsed === 35) {
+                                    console.log('aaaaaa', ctx)
+                                    // 35% female
+                                    label += ` Female ${ctx.parsed}%`;
+                                } else if (ctx.parsed === 65) {
+                                    // 65% male
+                                    label += ` Male ${ctx.parsed}%`;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });  
+    </script>
+</body>
+
+</html>
