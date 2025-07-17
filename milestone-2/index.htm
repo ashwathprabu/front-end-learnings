@@ -67,10 +67,10 @@
             </div>
         </div>
     </nav>
-    <div class="bg-gray-50 text-gray-800">
+    <div class="bg-gray-50  text-gray-800">
         <div class="flex h-screen">
             <!-- Sidebar -->
-            <aside class="w-64 bg-white shadow-lg flex flex-col justify-between">
+            <aside id="sidebar" class="w-64 bg-white shadow-lg flex flex-col justify-between hidden md:flex">
                 <div>
                     <!-- Profile -->
                     <div class="p-4 flex items-center gap-3 border-b">
@@ -110,13 +110,13 @@
                             </li>
                             <li>
                                 <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
+                                    <img src="./assets/frame.svg" alt="" class="h-5 ml-4">
                                     <span>Candidate</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/calendar.svg" alt="" class="h-5 ml-4">
+                                    <img src="./assets/setting-2.svg" alt="" class="h-5 ml-4">
                                     <span>Calendar</span>
                                 </a>
                             </li>
@@ -207,31 +207,84 @@
                     </div>
                 </div>
 
-                <!-- <div class="flex justify-between items-center mb-2">
-                    <h2 class="text-lg font-semibold">Job Statistics</h2>
+                <!-- Bottom Section: Employee Table + Composition Chart -->
+                <div class="grid grid-cols-4 gap-4">
+                    <!-- Employee Status Table: 3/4 -->
+                    <div class="col-span-3 bg-white rounded-lg shadow p-4">
+                        <div class="flex justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Employee Status</h3>
+                            <button class="text-sm px-2 py-1 bg-gray-100 rounded flex items-center gap-1">
+                                Filter & Sort
+                                <img src="./assets/filter.png" alt="Filter Icon" class="w-4 h-4">
+                            </button>
+                        </div>
 
-                    <div class="flex items-center gap-4">
-                        <div id="chartLegendContainer"></div>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-gray-500 border-b ">
+                                    <th class="py-2">Employee Name</th>
+                                    <th>Department</th>
+                                    <th>Age</th>
+                                    <th>Discipline</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="./assets/employee.png" class="rounded-full w-6 h-6" /> Justin
+                                        Lipshutz
+                                    </td>
+                                    <td>Marketing</td>
+                                    <td>22</td>
+                                    <td class="text-green-600">+100%</td>
+                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="./assets/emp2.png" class="rounded-full w-6 h-6" /> Marcus
+                                        Culhane
+                                    </td>
+                                    <td>Finance</td>
+                                    <td>24</td>
+                                    <td class="text-green-600">+95%</td>
+                                    <td><span class="text-gray-700 bg-gray-100 px-2 py-1 rounded">Contract</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 flex items-center gap-2">
+                                        <img src="./assets/emp3.png" class="rounded-full w-6 h-6" /> Leo
+                                        Stanton
+                                    </td>
+                                    <td>R&D</td>
+                                    <td>28</td>
+                                    <td class="text-green-600">+89%</td>
+                                    <td><span class="text-green-700 bg-green-100  px-2 py-1 rounded">Permanent</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <select class="px-3 py-1 border rounded text-sm text-gray-600 bg-white shadow-sm">
-                            <option>This Month</option>
-                            <option>Last Month</option>
-                            <option>Last 3 Months</option>
-                        </select>
+                    <!-- Donut Chart: 1/4 -->
+                    <div
+                        class="col-span-1 bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center h-[300px]">
+                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
+                        <canvas id="employeeCompositionChart"></canvas>
                     </div>
                 </div>
 
-                <div class="relative w-full h-64 bg-gradient-to-r from-indigo-100 to-indigo-200 rounded">
-                    <canvas id="jobStatsChart" class="w-full h-full"></canvas>
-                </div> -->
-
-
-                <!-- Bottom Section: Employee Table + Composition Chart -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                     <div class="bg-white rounded-lg shadow p-4">
+            
                         <div class="flex justify-between mb-2">
                             <h3 class="text-lg font-semibold">Employee Status</h3>
-                            <button class="text-sm px-2 py-1 bg-gray-100 rounded">Filter & Sort</button>
+
+                            <button class="text-sm px-2 py-1 bg-gray-100 rounded flex items-center gap-1">
+                                Filter & Sort
+                                <img src="./assets/filter.png" alt="Filter Icon" class="w-4 h-4">
+                            </button>
                         </div>
                         <table class="w-full text-sm">
                             <thead>
@@ -246,7 +299,7 @@
                             <tbody>
                                 <tr class="border-b">
                                     <td class="py-2 flex items-center gap-2">
-                                        <img src="https://i.pravatar.cc/24?img=1" class="rounded-full w-6 h-6" /> Justin
+                                        <img src="./assets/employee.png" class="rounded-full w-6 h-6" /> Justin
                                         Lipshutz
                                     </td>
                                     <td>Marketing</td>
@@ -257,7 +310,7 @@
                                 </tr>
                                 <tr class="border-b">
                                     <td class="py-2 flex items-center gap-2">
-                                        <img src="https://i.pravatar.cc/24?img=2" class="rounded-full w-6 h-6" /> Marcus
+                                        <img src="./assets/emp2.png" class="rounded-full w-6 h-6" /> Marcus
                                         Culhane
                                     </td>
                                     <td>Finance</td>
@@ -267,7 +320,7 @@
                                 </tr>
                                 <tr>
                                     <td class="py-2 flex items-center gap-2">
-                                        <img src="https://i.pravatar.cc/24?img=3" class="rounded-full w-6 h-6" /> Leo
+                                        <img src="./assets/emp3.png" class="rounded-full w-6 h-6" /> Leo
                                         Stanton
                                     </td>
                                     <td>R&D</td>
@@ -279,21 +332,24 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <!-- <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center">
-                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
-                        <canvas id="employeeCompositionChart" ></canvas>
-                    </div> -->
                     <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center h-[300px]">
                         <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
                         <canvas id="employeeCompositionChart"></canvas>
                     </div>
-                </div>
+                </div> -->
             </main>
         </div>
     </div>
 
     <script>
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
+        }
         const ctx = document.getElementById('jobStatsChart').getContext('2d');
 
         // Sample data
@@ -407,7 +463,8 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false, // allow it to fill the canvas
-                cutout: '70%',
+                aspectRatio: 1,
+                cutout: '65%',
                 plugins: {
                     legend: {
                         display: false
