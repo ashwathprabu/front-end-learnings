@@ -12,22 +12,21 @@
             darkMode: 'class'
         };
     </script>
-    <style>
-
-    </style>
 </head>
 
-<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+<body class="bg-white dark:bg-gray-900 text-gray-800  dark:text-gray-200">
 
     <nav
-        class="w-full px-4 py-2 flex items-center justify-between shadow-sm bg-white dark:bg-gray-800 border-b border-blue-50">
+        class="w-full px-4 py-2 flex items-center justify-between shadow-sm bg-white dark:bg-gray-800 border-b border-blue-50 fixed z-50">
         <!-- Left: Logo + Brand -->
         <div class="flex items-center space-x-2">
+            <button class="md:hidden block p-2" onclick="toggleSidebar()">
+                <svg class="w-6 h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
             <img class="" src="./assets/logo.svg" alt="">
-            <!-- <div class="w-8 h-8 rounded-full bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
-        C
-      </div>
-      <span class="text-lg font-semibold">Circle Soft</span> -->
         </div>
 
         <!-- Center: Search Bar -->
@@ -67,289 +66,228 @@
             </div>
         </div>
     </nav>
-    <div class="bg-gray-50  text-gray-800">
-        <div class="flex h-screen">
+
+    <div class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 top-0 pt-16">
+        <div class="flex min-h-screen">
             <!-- Sidebar -->
-            <aside id="sidebar" class="w-64 bg-white shadow-lg flex flex-col justify-between hidden md:flex">
-                <div>
+            <aside id="sidebar" class="w-64 bg-white dark:bg-gray-800 shadow-lg flex flex-col fixed top-14 left-0 h-full z-40 transform transition-transform duration-300 -translate-x-full md:translate-x-0">
+                <div class="flex-1 overflow-y-auto">
                     <!-- Profile -->
-                    <div class="p-4 flex items-center gap-3 border-b">
+                    <div class="p-4 flex items-center gap-3 border-b dark:border-gray-700">
                         <img src="./assets/avatar.svg" alt="Profile" class="rounded-full w-10 h-10" />
                         <div>
-                            <p class="font-semibold">Gavano</p>
-                            <p class="text-sm text-gray-500">HR Manager</p>
+                            <p class="font-semibold text-gray-800 dark:text-gray-200">Gavano</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">HR Manager</p>
                         </div>
                         <img src="./assets/profile-options.svg" alt="Profile" class="rounded-full w-10 h-10" />
                     </div>
-                    <nav class="flex flex-col items-start justify-start space-y-2">
-                        <ul class="w-full space-y-2">
+                    
+                    <!-- Main Navigation -->
+                    <nav class="flex flex-col">
+                        <ul class="w-full space-y-2 py-4">
                             <li>
                                 <a href="#"
-                                    class="flex  p-4 items-center gap-2 p-2 w-full bg-neutral-100 text-indigo-600 font-semibold">
-                                    <img src="./assets/dashboard.svg" alt="" class="h-5 ml-4">
+                                    class="flex items-center gap-3 px-6 py-3 w-full bg-neutral-100 dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 font-semibold">
+                                    <img src="./assets/dashboard.svg" alt="" class="h-5 w-5">
                                     <span>Dashboard</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/finance.svg" alt="" class="h-5 ml-4">
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/finance.svg" alt="" class="h-5 w-5">
                                     <span>Finance</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/employees.svg" alt="" class="h-5 ml-4">
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/employees.svg" alt="" class="h-5 w-5">
                                     <span>Employees</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/company.svg" alt="" class="h-5 ml-4">
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/company.svg" alt="" class="h-5 w-5">
                                     <span>Company</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/frame.svg" alt="" class="h-5 ml-4">
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/frame.svg" alt="" class="h-5 w-5">
                                     <span>Candidate</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/setting-2.svg" alt="" class="h-5 ml-4">
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/setting-2.svg" alt="" class="h-5 w-5">
                                     <span>Calendar</span>
                                 </a>
                             </li>
                         </ul>
                     </nav>
 
-                    <div class=" border-t border-blue-50"></div>
-                    <!-- Footer -->
-                    <div class="flex flex-col items-start justify-start">
+                    <div class="border-t border-gray-200 dark:border-gray-700 mt-4"></div>
+                    
+                    <!-- Footer Navigation -->
+                    <div class="py-4">
                         <ul class="w-full space-y-2">
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
-                                    <span>Candidate</span>
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/candidate.svg" alt="" class="h-5 w-5">
+                                    <span>Settings</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="flex  p-4 items-center gap-2 p-2 w-full hover:bg-gray-100">
-                                    <img src="./assets/candidate.svg" alt="" class="h-5 ml-4">
-                                    <span>Candidate</span>
+                                <a href="#" class="flex items-center gap-3 px-6 py-3 w-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-700 dark:text-gray-200">
+                                    <img src="./assets/candidate.svg" alt="" class="h-5 w-5">
+                                    <span>Help</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-
                 </div>
-
             </aside>
 
+            <!-- Overlay for mobile -->
+            <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden" onclick="toggleSidebar()"></div>
+
             <!-- Main Dashboard -->
-            <main class="flex-1 p-6 overflow-y-auto">
+            <main class="flex-1 p-6 overflow-y-auto md:ml-64">
                 <!-- Top Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <div class="flex space-x-4">
-                            <p class="text-sm text-gray-500">Total Employees</p>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Total Employees</p>
                             <span class="text-green-600 text-sm">10.0%</span>
-
                         </div>
-                        <h2 class="text-2xl font-bold mt-4">856</h2>
-                        <span class="text-gray-500 text-sm">Employee</span>
+                        <h2 class="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-200">856</h2>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">Employee</span>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <div class="flex space-x-4">
-                            <p class="text-sm text-gray-500">Job View</p>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Job View</p>
                             <span class="text-green-600 text-sm">10.0%</span>
-
                         </div>
-                        <h2 class="text-2xl font-bold mt-4">3,342</h2>
-                        <span class="text-gray-500 text-sm">Viewers</span>
+                        <h2 class="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-200">3,342</h2>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">Viewers</span>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <div class="flex space-x-4">
-                            <p class="text-sm text-gray-500">Job Applied</p>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Job Applied</p>
                             <span class="text-green-600 text-sm">10.0%</span>
-
                         </div>
-                        <h2 class="text-2xl font-bold mt-4">77</h2>
-                        <span class="text-gray-500 text-sm">Applicants</span>
+                        <h2 class="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-200">77</h2>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">Applicants</span>
                     </div>
-                    <div class="p-4 bg-white rounded-lg shadow">
-                        <div class="flex space-x-2">
-                            <p class="text-sm text-gray-500">Resigned Employees</p>
+                    <div class="p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                        <div class="flex justify-between items-center">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Resigned Employees</p>
                             <span class="text-green-600 text-sm">10.0%</span>
-
                         </div>
-                        <h2 class="text-2xl font-bold mt-4">17</h2>
-                        <span class="text-gray-500 text-sm">Employee</span>
+                        <h2 class="text-2xl font-bold mt-4 text-gray-800 dark:text-gray-200">17</h2>
+                        <span class="text-gray-500 dark:text-gray-400 text-sm">Employee</span>
                     </div>
                 </div>
 
-                <!-- Bar Chart Placeholder -->
-                <div class="bg-white rounded-lg shadow p-4 mb-6">
+                <!-- Bar Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 mb-6">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="text-lg font-semibold">Job Statistics</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Job Statistics</h3>
                         <div class="relative">
                             <select id="timeframeSelector"
-                                class="px-3 py-1 text-sm bg-gray-100 rounded border border-gray-300">
+                                class="px-3 py-1 text-sm bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded border border-gray-300 dark:border-gray-600">
                                 <option value="monthly" selected>Monthly</option>
                                 <option value="weekly">Weekly</option>
                             </select>
                         </div>
-
                     </div>
-                    <div
-                        class="h-60 bg-gradient-to-r to-indigo-200 rounded flex items-center justify-center width-full text-indigo-600">
-                        <canvas class="" id="jobStatsChart"></canvas>
+                    <div class="h-60 bg-gradient-to-r to-indigo-200 dark:to-indigo-800 rounded flex items-center justify-center">
+                        <canvas id="jobStatsChart" class="w-full h-full"></canvas>
                     </div>
                 </div>
 
                 <!-- Bottom Section: Employee Table + Composition Chart -->
-                <div class="grid grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
                     <!-- Employee Status Table: 3/4 -->
-                    <div class="col-span-3 bg-white rounded-lg shadow p-4">
-                        <div class="flex justify-between mb-2">
-                            <h3 class="text-lg font-semibold">Employee Status</h3>
-                            <button class="text-sm px-2 py-1 bg-gray-100 rounded flex items-center gap-1">
+                    <div class="lg:col-span-3 bg-white dark:bg-gray-800 rounded-lg shadow p-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Employee Status</h3>
+                            <button class="text-sm px-3 py-1 bg-gray-100 dark:bg-gray-700 dark:text-gray-200 rounded flex items-center gap-1">
                                 Filter & Sort
                                 <img src="./assets/filter.png" alt="Filter Icon" class="w-4 h-4">
                             </button>
                         </div>
-
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="text-left text-gray-500 border-b ">
-                                    <th class="py-2">Employee Name</th>
-                                    <th>Department</th>
-                                    <th>Age</th>
-                                    <th>Discipline</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b">
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/employee.png" class="rounded-full w-6 h-6" /> Justin
-                                        Lipshutz
-                                    </td>
-                                    <td>Marketing</td>
-                                    <td>22</td>
-                                    <td class="text-green-600">+100%</td>
-                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/emp2.png" class="rounded-full w-6 h-6" /> Marcus
-                                        Culhane
-                                    </td>
-                                    <td>Finance</td>
-                                    <td>24</td>
-                                    <td class="text-green-600">+95%</td>
-                                    <td><span class="text-gray-700 bg-gray-100 px-2 py-1 rounded">Contract</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/emp3.png" class="rounded-full w-6 h-6" /> Leo
-                                        Stanton
-                                    </td>
-                                    <td>R&D</td>
-                                    <td>28</td>
-                                    <td class="text-green-600">+89%</td>
-                                    <td><span class="text-green-700 bg-green-100  px-2 py-1 rounded">Permanent</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="text-left text-gray-500 dark:text-gray-400 border-b dark:border-gray-700">
+                                        <th class="py-3 pr-4">Employee Name</th>
+                                        <th class="pr-4">Department</th>
+                                        <th class="pr-4">Age</th>
+                                        <th class="pr-4">Discipline</th>
+                                        <th class="pr-4">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b dark:border-gray-700">
+                                        <td class="py-3 flex items-center gap-2">
+                                            <img src="./assets/employee.png" class="rounded-full w-6 h-6" /> 
+                                            <span class="text-gray-800 dark:text-gray-200">Justin Lipshutz</span>
+                                        </td>
+                                        <td class="text-gray-600 dark:text-gray-300">Marketing</td>
+                                        <td class="text-gray-600 dark:text-gray-300">22</td>
+                                        <td class="text-green-600">+100%</td>
+                                        <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded-full text-xs">Permanent</span></td>
+                                    </tr>
+                                    <tr class="border-b dark:border-gray-700">
+                                        <td class="py-3 flex items-center gap-2">
+                                            <img src="./assets/emp2.png" class="rounded-full w-6 h-6" /> 
+                                            <span class="text-gray-800 dark:text-gray-200">Marcus Culhane</span>
+                                        </td>
+                                        <td class="text-gray-600 dark:text-gray-300">Finance</td>
+                                        <td class="text-gray-600 dark:text-gray-300">24</td>
+                                        <td class="text-green-600">+95%</td>
+                                        <td><span class="text-gray-700 bg-gray-100 px-2 py-1 rounded-full text-xs">Contract</span></td>
+                                    </tr>
+                                    <tr class="border-b dark:border-gray-700">
+                                        <td class="py-3 flex items-center gap-2">
+                                            <img src="./assets/emp3.png" class="rounded-full w-6 h-6" /> 
+                                            <span class="text-gray-800 dark:text-gray-200">Leo Stanton</span>
+                                        </td>
+                                        <td class="text-gray-600 dark:text-gray-300">R&D</td>
+                                        <td class="text-gray-600 dark:text-gray-300">28</td>
+                                        <td class="text-green-600">+89%</td>
+                                        <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded-full text-xs">Permanent</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
-                    <!-- Donut Chart: 1/4 -->
-                    <div
-                        class="col-span-1 bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center h-[300px]">
-                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
-                        <canvas id="employeeCompositionChart"></canvas>
+                    <!-- Employee Composition Chart: 1/4 -->
+                    <div class="lg:col-span-1 bg-white dark:bg-gray-800 rounded-lg shadow p-4 flex flex-col items-center justify-center min-h-[300px]">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Employee Composition</h3>
+                        <div class="w-full h-[200px] flex items-center justify-center">
+                            <canvas id="employeeCompositionChart" class="max-w-full max-h-full"></canvas>
+                        </div>
                     </div>
                 </div>
-
-                <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <div class="bg-white rounded-lg shadow p-4">
-            
-                        <div class="flex justify-between mb-2">
-                            <h3 class="text-lg font-semibold">Employee Status</h3>
-
-                            <button class="text-sm px-2 py-1 bg-gray-100 rounded flex items-center gap-1">
-                                Filter & Sort
-                                <img src="./assets/filter.png" alt="Filter Icon" class="w-4 h-4">
-                            </button>
-                        </div>
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="text-left text-gray-500 border-b">
-                                    <th class="py-2">Employee Name</th>
-                                    <th>Department</th>
-                                    <th>Age</th>
-                                    <th>Discipline</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b">
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/employee.png" class="rounded-full w-6 h-6" /> Justin
-                                        Lipshutz
-                                    </td>
-                                    <td>Marketing</td>
-                                    <td>22</td>
-                                    <td class="text-green-600">+100%</td>
-                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
-                                    </td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/emp2.png" class="rounded-full w-6 h-6" /> Marcus
-                                        Culhane
-                                    </td>
-                                    <td>Finance</td>
-                                    <td>24</td>
-                                    <td class="text-green-600">+95%</td>
-                                    <td><span class="text-gray-700 bg-gray-100 px-2 py-1 rounded">Contract</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2 flex items-center gap-2">
-                                        <img src="./assets/emp3.png" class="rounded-full w-6 h-6" /> Leo
-                                        Stanton
-                                    </td>
-                                    <td>R&D</td>
-                                    <td>28</td>
-                                    <td class="text-green-600">+89%</td>
-                                    <td><span class="text-green-700 bg-green-100 px-2 py-1 rounded">Permanent</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center justify-center h-[300px]">
-                        <h3 class="text-lg font-semibold mb-2">Employee Composition</h3>
-                        <canvas id="employeeCompositionChart"></canvas>
-                    </div>
-                </div> -->
             </main>
         </div>
     </div>
 
     <script>
-
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
         }
 
         function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('hidden');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
         }
+
         const ctx = document.getElementById('jobStatsChart').getContext('2d');
 
         // Sample data
@@ -435,6 +373,7 @@
                 }
             }
         });
+
         // Handle dropdown change
         document.getElementById('timeframeSelector').addEventListener('change', function () {
             const selected = this.value;
@@ -442,28 +381,25 @@
             jobStatsChart.update();
         });
 
-
-        // donut chart
+        // Donut chart
         const chrt = document.getElementById('employeeCompositionChart').getContext('2d');
         new Chart(chrt, {
             type: 'doughnut',
-
             data: {
                 datasets: [{
-                    label: 'My First Dataset',
+                    label: 'Employee Composition',
                     data: [65, 35],
                     backgroundColor: [
                         '#16C098',
                         '#5832E6'
                     ],
                     offset: 10,
-                    hoverOffset: 10
+                    hoverOffset: 15
                 }]
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false, // allow it to fill the canvas
-                aspectRatio: 1,
+                maintainAspectRatio: false,
                 cutout: '65%',
                 plugins: {
                     legend: {
@@ -472,14 +408,11 @@
                     tooltip: {
                         callbacks: {
                             label: (ctx) => {
-                                let label = ctx.label || '';
+                                let label = '';
                                 if (ctx.parsed === 35) {
-                                    console.log('aaaaaa', ctx)
-                                    // 35% female
-                                    label += ` Female ${ctx.parsed}%`;
+                                    label = `Female ${ctx.parsed}%`;
                                 } else if (ctx.parsed === 65) {
-                                    // 65% male
-                                    label += ` Male ${ctx.parsed}%`;
+                                    label = `Male ${ctx.parsed}%`;
                                 }
                                 return label;
                             }
@@ -487,7 +420,7 @@
                     }
                 }
             }
-        });  
+        });
     </script>
 </body>
 
